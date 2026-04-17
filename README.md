@@ -1,6 +1,6 @@
 # copr for rpm-ostree and fedora atomics disrtibutions
 > [!NOTE]
-> Forked from 
+> forked from boredsquirrel/COPR-command for a better integration with rpm-ostree and fedora atomics disrtibutions
 > This Tool is not made or supported by the Fedora Project,
 but aims to reproduce the `dnf copr` functionalities for easily adding COPRs on Fedora Atomic Desktops, IoT and CoreOS.
 
@@ -9,7 +9,7 @@ It does most actions rootless (unlike `dnf copr`) and only requires privilege es
 The tool also fixes SELinux contexts and filesystem permissions, to secure the repo files from tampering. Atomic Desktops allow unprivileged updates from existing repos, so this is important.
 
 ```
-Usage: copr [OPTION] [ARGUMENT]
+Usage: rpm-ostree copr [OPTION] [ARGUMENT]
 
 Options:
   enable    Add COPR repository
@@ -23,16 +23,16 @@ Argument:
   Name of the COPR repository (for search) or "author/repo" (for install and remove)
 
 Examples:
-  copr enable kwizart/kernel-longterm-6.6
-  copr remove kdesig/kde-nightly-qt6
-  copr list
-  copr search bubblejail
+  rpm-ostree copr enable kwizart/kernel-longterm-6.6
+  rpm-ostree copr remove kdesig/kde-nightly-qt6
+  rpm-ostree copr list
+  rpm-ostree copr search bubblejail
 ```
 
 Install:
 
 ```
-curl https://raw.githubusercontent.com/boredsquirrel/COPR-command/main/copr -O ./copr
+curl https://raw.githubusercontent.com/kissingcloper/rpm-ostree-copr/main/copr -O ./copr
 run0 sh -c '
   mkdir /var/usrlocal/bin
   mv ./copr /var/usrlocal/bin
@@ -45,7 +45,6 @@ run0 sh -c '
 > [!NOTE]
 > COPR repos are version-independent, but there is always a chance that they are unmaintained and thus dont support the current version.
 > A solution like warning about that, or even removing them, could be useful.
-> I did not test such a case on Fedora Atomic, and guess such a package would result in an `rpm-ostree` error.
 
 > [!WARNING]
 > COPR repositories can contain anything. Only add them if you trust the developers and know the repo really belongs to them.
