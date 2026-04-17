@@ -35,7 +35,9 @@ helptext=$(
 This Tool is not made or supported by the Fedora Project,
 but aims to reproduce the "dnf copr" functionalities for easily adding COPRs.
 
-Usage: copr [OPTION] [ARGUMENT]
+This project is a fork of 
+
+Usage: rpm-ostree copr [OPTION] [ARGUMENT]
 
 Options:
   enable    Add COPR repository
@@ -49,10 +51,10 @@ Argument:
   Name of the COPR repository (for search) or "author/repo" (for install and remove)
 
 Examples:
-  copr enable kdesig/kde-nightly-qt6
-  copr remove kdesig/kde-nightly-qt6
-  copr list
-  copr search bubblejail
+  rpm-ostree copr enable kdesig/kde-nightly-qt6
+  rpm-ostree copr remove kdesig/kde-nightly-qt6
+  rpm-ostree copr list
+  rpm-ostree copr search bubblejail
 
 For help, write me here: https://discussion.fedoraproject.org/u/boredsquirrel/
 
