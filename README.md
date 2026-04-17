@@ -1,5 +1,6 @@
-# standalone copr command
+# copr for rpm-ostree and fedora atomics disrtibutions
 > [!NOTE]
+> Forked from 
 > This Tool is not made or supported by the Fedora Project,
 but aims to reproduce the `dnf copr` functionalities for easily adding COPRs on Fedora Atomic Desktops, IoT and CoreOS.
 
