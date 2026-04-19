@@ -2,8 +2,8 @@
 set -euo pipefail
 
 # assign variables for author, reponame and releaseversion
-author="$(echo "$2" | cut -d '/' -f1)"
-reponame="$(echo "$2" | cut -d '/' -f2)"
+author="$(echo "${2:-}" | cut -d '/' -f1)"
+reponame="$(echo "${2:-}" | cut -d '/' -f2)"
 releasever="$(rpm -E %fedora)"
 repofile="/etc/yum.repos.d/_copr_$author-$reponame.repo"
 repofilebak="$HOME/COPR/_copr_$author-$reponame.repo"
