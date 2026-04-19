@@ -36,6 +36,7 @@ Install:
 curl -o https://raw.githubusercontent.com/kissingcloper/rpm-ostree-copr/main/copr
 run0 sh -c '
   mv ./copr /var/usrlocal/bin
+  mkdir -p /var/usrlocal/bin
   chown -R root:root /var/usrlocal/bin
   chcon -R system_u:object_r:bin_t:s0 /var/usrlocal/bin
   chmod +x /var/usrlocal/bin/copr
