@@ -153,7 +153,7 @@ elif [[ "$1" == "search" ]]; then
         xdg-open "https://copr.fedorainfracloud.org/coprs/fulltext/?fulltext=$2"
 
 # ask to use the helptext if no option is set
-elif [[ "$1" == "" || "$2" == "" ]]; then
+elif [[ "${1:-}" == "" && "${2:-}" == "" ]]; then
         echo "to see command usage write : copr help"
 
 # display the helptext
