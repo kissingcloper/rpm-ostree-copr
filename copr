@@ -82,7 +82,7 @@ move-repo () {
         run0 sh -c '
                 mv "$repofile" "$repofilebak" &&\
                 chown "$USER" "$repofilebak" &&\
-                echo 'COPR Repository "$reponame" removed.' ||\
+                echo "COPR Repository \"$reponame\" removed."
                 echo "ERROR removing COPR repository."
         '
 }
