@@ -89,7 +89,7 @@ move-repo () {
 
 # Main loop
 
-if [[ "$1" == "enable" ]]; then
+if [[ "${1:-}" == "enable" ]]; then
         while true; do
                 read -rp "$question" yn
                 case $yn in
@@ -114,13 +114,13 @@ if [[ "$1" == "enable" ]]; then
         done
 
 # disable a repo
-elif [[ "$1" == "disable" ]]; then
+elif [[ "${1:-}" == "disable" ]]; then
         sed 's/enabled=1/enabled=0/g' "$repofile" >/dev/null &&
                 echo "Repository "$author"/"$reponame" disabled." ||
                 echo "Already disabled or repo not found."
 
 # remove the named repo
-elif [[ "$1" == "remove" ]]; then
+elif [[ "${1:-}" == "remove" ]]; then
 
         if [[ -e "$repofile" ]]; then
                 move-repo
@@ -146,19 +146,19 @@ elif [[ "$1" == "remove" ]]; then
         fi
 
 # list all installed COPR repositories
-elif [[ "$1" == "list" ]]; then
+elif [[ "${1:-}" == "list" ]]; then
         find /etc/yum.repos.d/ -type f -name '_copr*' -exec basename {} \; | sed 's/_copr_//; s/\.repo$//'
 
 # search, this is just implemented through the browser (hey, pip does the same!)
-elif [[ "$1" == "search" ]]; then
-        xdg-open "https://copr.fedorainfracloud.org/coprs/fulltext/?fulltext=$2"
+elif [[ "${1:-}" == "search" ]]; then
+        xdg-open "https://copr.fedorainfracloud.org/coprs/fulltext/?fulltext=${2:-}"
 
 # ask to use the helptext if no option is set
 elif [[ "${1:-}" == "" && "${2:-}" == "" ]]; then
         echo "to see command usage write : copr help"
 
 # display the helptext
-elif [[ "$1" == "help" ]]; then
+elif [[ "${1:-}" == "help" ]]; then
         echo "$helptext"
 
 fi
