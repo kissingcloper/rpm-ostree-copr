@@ -33,7 +33,7 @@ Examples:
 Install:
 
 ```
-curl https://raw.githubusercontent.com/kissingcloper/rpm-ostree-copr/main/copr -O ./copr
+curl https://raw.githubusercontent.com/kissingcloper/rpm-ostree-copr/main/copr -o ./copr
 run0 sh -c '
   mv ./copr /var/usrlocal/bin
   chown -R root:root /var/usrlocal/bin
